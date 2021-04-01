@@ -17,7 +17,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'codota/tabnine-vim'
 	Plug 'dense-analysis/ale'
-        Plug 'ErichDonGubler/vim-sublime-monokai'
+    Plug 'psf/black'
+    Plug 'sickill/vim-monokai'
 call plug#end()
 
 set encoding=utf-8
@@ -37,10 +38,10 @@ set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix
-
-
-
-colorscheme sublimemonokai
+syntax enable
+set directory=/home/kami/.vim/swapfiles//
+autocmd TextChanged,TextChangedI * update
+set guicursor=n-v-c:block,o:hor50,i-ci:hor15,r-cr:hor30,sm:iCursor 
 
 " indent when moving to the next line while writing code
 set autoindent
@@ -51,16 +52,13 @@ set expandtab
 " show a visual line under the cursor's current line
 set cursorline
 
+
 " show the matching part of the pair for [] {} and ()
 set showmatch
+colorscheme monokai
 
 syntax on
 
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 
 " python pep------------------------------------------------------------------------
@@ -80,3 +78,4 @@ if 'VIRTUAL_ENV' in os.environ:
 
 EOF
 " -----------------------------------------------------------------------------------
+
